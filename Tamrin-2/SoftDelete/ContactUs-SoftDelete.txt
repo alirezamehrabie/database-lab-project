@@ -1,0 +1,49 @@
+Table ContactUs
+
+
+-- Create Table ContactUs Project --
+
+CREATE TABLE `venusproject`.`contactus`
+ (`Id` INT(5) NOT NULL AUTO_INCREMENT , `Full_Name` VARCHAR(180) NOT NULL , 
+`Email_Address` VARCHAR(198) NOT NULL , `Phone_Number` VARCHAR(11) NOT NULL , 
+`Subject` VARCHAR(60) NOT NULL , `Message` VARCHAR(250) NOT NULL , PRIMARY KEY (`Id`)) ENGINE = InnoDB;
+
+
+
+
+
+-- Insert Message To Table ContactUs Project --
+
+INSERT INTO `contactus`(`Id`, `Full_Name`, `Email_Address`, `Phone_Number`, `Subject`, `Message`)
+ VALUES ('','AlirezaMehrabi','mehrabi.ir@yahoo.com','09908582119','MessageOne','VeryNice Webdite!')
+
+
+INSERT INTO `contactus`(`Id`, `Full_Name`, `Email_Address`, `Phone_Number`, `Subject`, `Message`)
+ VALUES ('','MohammadAlavi','mmdali@gmail.com','09174521103','MessageTwo','Good Day Admin...')
+
+
+
+
+
+-- Delete Message from Table ContactUs Project -- (Hard Delete)
+
+DELETE FROM `contactus` WHERE id = 2
+OR
+DELETE FROM `contactus` WHERE id = 1
+
+
+------------------------------------------------------------------
+
+Soft Delete Table Contactus
+
+ALTER TABLE `contactus` CHANGE `Status` `Status` ENUM('Active','InActive') 
+CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NULL DEFAULT NULL;
+
+
+INSERT INTO `contactus` (`Id`, `Full_Name`, `Email_Address`, `Phone_Number`, `Subject`, `Message`, `Status`)
+ VALUES (NULL, 'Ali', 'Karami', '09908581114', 'Salam', 'Khobi?', 'Active');
+
+
+InActived:
+UPDATE `contactus` SET `Status` = 'InActive' WHERE `contactus`.`Id` = 3;
+

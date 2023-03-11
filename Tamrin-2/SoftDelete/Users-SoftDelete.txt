@@ -1,0 +1,60 @@
+Table Users
+
+
+-- Create Table Users Project --
+
+CREATE TABLE users (
+  id INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(50) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  firstname VARCHAR(50),
+  lastname VARCHAR(50),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
+
+
+
+
+
+
+-- Insert Message To Table Users Project --
+
+INSERT INTO users (username, password, email, firstname, lastname)
+VALUES ('Alireza', '12345', 'Alireza@yahoo.com', 'Alireza', 'Mehrabi');
+
+INSERT INTO users (username, password, email, firstname, lastname)
+VALUES ('javad', '12345', 'javad@yahoo.com', 'javad', 'mohammadi');
+
+
+
+
+-- Delete Message from Table User Project -- (Hard Delete)
+
+DELETE FROM `users` WHERE email = 'javad@yahoo.com'
+OR
+DELETE FROM `users` WHERE email = 'Alireza@yahoo.com'
+
+
+----------------------------------------------------------------------------
+
+Soft Delete Table Users
+
+ALTER TABLE users ADD COLUMN Status
+ ENUM('TrueUser','FalseUser') NOT NULL DEFAULT 'FalseUser';
+
+
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `firstname`, `lastname`, `created_at`, `updated_at`, `Status`) 
+VALUES (NULL, 'Akbar', '321', 'Akbar@yahoo.com', 'Akbar', 'Akbari', current_timestamp(), current_timestamp(), 'FalseUser');
+
+
+TrueUser:
+UPDATE `users` SET `Status` = 'TrueUser' WHERE `users`.`id` = 3;
+
+
+
+
+
+
