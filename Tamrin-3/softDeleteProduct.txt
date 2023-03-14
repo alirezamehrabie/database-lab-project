@@ -1,0 +1,6 @@
+/* Alireza Mehrabi (00111022302019) */
+/* Sodt Delete Products */
+
+
+UPDATE `products` SET
+ `product_Status` = 'Unavailable' WHERE `products`.`product_Id` = 4;
