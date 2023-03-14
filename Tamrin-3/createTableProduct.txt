@@ -1,0 +1,14 @@
+/* Alireza Mehrabi */
+
+-- Create Table Code Sql:
+
+CREATE TABLE `products` (
+  `product_Id` int(11) NOT NULL,
+  `product_Name` varchar(255) NOT NULL,
+  `product_Description` text DEFAULT NULL,
+  `product_Price` varchar(20) NOT NULL,
+  `product_Quantity` int(11) DEFAULT 0,
+  `product_Created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `product_Updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `product_Status` enum('Available','Unavailable') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
