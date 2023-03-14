@@ -1,0 +1,5 @@
+/* Alireza Mehrabi (00111022302019) */
+/* Select All Products */
+
+
+SELECT * FROM `products`;
