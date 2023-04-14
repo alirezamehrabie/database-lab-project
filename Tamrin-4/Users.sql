@@ -12,3 +12,8 @@ CREATE TABLE `users` (
   `last_login` timestamp NULL DEFAULT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
+
+
+
+
+ALTER TABLE `users` CHANGE `is_admin` `is_admin` ENUM('User','Admin') NOT NULL;
