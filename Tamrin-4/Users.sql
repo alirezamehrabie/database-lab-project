@@ -1,19 +1,14 @@
-CREATE TABLE user (
-  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  password CHAR(64) NOT NULL,
-  address1 VARCHAR(255),
-  address2 VARCHAR(255),
-  city VARCHAR(255),
-  state VARCHAR(255),
-  zip VARCHAR(10),
-  country VARCHAR(255),
-  phone VARCHAR(20),
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  last_login TIMESTAMP NULL,
-  is_admin TINYINT(1) NOT NULL DEFAULT 0,
-  PRIMARY KEY (id),
-  UNIQUE KEY (email)
-);
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` char(64) NOT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `phone` varchar(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `last_login` timestamp NULL DEFAULT NULL,
+  `is_admin` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
